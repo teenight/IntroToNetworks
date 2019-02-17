@@ -1,0 +1,1400 @@
+﻿Script started on Mon 16 Jul 2018 06:56:50 PM CDT
+bash-4.2$ javac UDPClient.java
+bash-4.2$ java UDPClient
+Type the name of file on server you would like to save: TestFile
+
+Type the name that you would like to save on client: save
+
+Enter a probability(between 0-1) for error: 0.4
+
+Sequence Number 0
+HTTP/1.0 200 Document Follows
+ogChecksum: 14056
+Content-Type: text/plain
+Content-Length: 17834
+
+Data                                                                                                                                     
+
+An error was detected in this packet: 
+Sequence Number 0
+HTTP/1.0 200 Document Follows
+ogChecksum: 14056
+Content-Type: text/plain
+Content-Length: 17834
+
+Data                                                      ?                                                                              
+
+New Checksum: 14087
+
+
+-----------------------------------
+Sequence Number 1
+ogChecksum: 23238
+
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+transport service. You will write the Web client and server programs that will
+communicate over the College of Engineering LAN
+-----------------------------------
+Sequence Number 2
+ogChecksum: 23001
+
+. You will also learn other important
+functions in computer networks: (1) implementation of segmentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+erro
+-----------------------------------
+Sequence Number 3
+ogChecksum: 23439
+
+rs generation and detection.
+Overview
+In this project you will implement a simple web client application, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+g
+-----------------------------------
+Sequence Number 4
+ogChecksum: 23325
+
+remlin function (that can corrupt packets with a specifiedThe Web client initiates the communication by sending an HTTP request to the Web
+server. This outgoing HTTP request is not processed by the segmentation and re
+
+An error was detected in this packet: 
+Sequence Number 4
+ogChecksum: 23325
+
+remlin function (that?can corrupt packets with a specifiedThe Web client initiates the communication by s?nding an HTTP request to the Web
+server. This outgoing HTTP request is not processed by the segmentation and re
+
+New Checksum: 23318
+
+
+-----------------------------------
+Sequence Number 5
+ogChecksum: 23017
+
+assembly,
+error detection or the Gremlin function. The HTTP request is sent through the
+transport UDP datagram socket to the Web server.
+At the Web server host, the HTTP request is also not processed by those function
+-----------------------------------
+Sequence Number 6
+ogChecksum: 22618
+
+s at the
+Web server host. The Web server will then process the request, e.g. GET command, by
+reading the file requested by the Web client. Since the requested file may be large, the
+server application will use the seg
+-----------------------------------
+Sequence Number 7
+ogChecksum: 23080
+
+mentation function to partition the file into smaller
+segments that will fit into a packet of size allowable by the network. Each segment is
+then placed into a 256-byte packet that is allowed by the network. The packe
+
+An error was detected in this packet: 
+Sequence Number 7
+ogChecksum: 23080
+
+mentation function to partition the fi?e into smaller
+segments that will fit into a packet of size allowable by the network. Each segment is
+then placed into a 256-byte packet that is allowed by the network. The packe
+
+New Checksum: 23035
+
+
+-----------------------------------
+Sequence Number 8
+ogChecksum: 23285
+
+t must
+contain a header that contains information for error detection and other protocol
+information. You may design your own header fields that are of reasonable sizes.
+Another field that must be in the header is a s
+
+An error was detected in this packet: 
+Sequence Number 8
+ogChecksum: 23285
+
+t must
+contain a header that contains information for error detection and other protocol
+information. You may design your own header fields that ?re of reasonable sizes.
+Another f?eld that must be in the header is a s
+
+New Checksum: 23209
+
+
+-----------------------------------
+Sequence Number 9
+ogChecksum: 22868
+
+equence number. The packet is then passed
+to the error detection function which, at the server (sending process), will compute the
+checksum and place the checksum in the header. The packet is finally sent via the UDP
+
+
+An error was detected in this packet: 
+Sequence Number 9
+ogChecksum: 22868
+
+equence number. The packet is then passed
+to the error detection function which, at the server (sendin? process), will compute the
+checksum and place the checksum in the header. The packet is finally sent via the UDP
+
+
+New Checksum: 22828
+
+
+-----------------------------------
+Sequence Number 10
+ogChecksum: 22916
+
+socket to the Web client.
+When the packet is received by the Web client host UDP socket, the packet will be
+processed by the Gremlin function which may randomly cause errors in some packet.
+This will emulate errors t
+
+An error was detected in this packet: 
+Sequence Number 10
+ogChecksum: 22916
+
+socket?to the Web client.
+When the pac?et is received by the Web client host UDP socket, the packet will be
+processed by the Gremlin function which may randomly cause errors in some packet.
+This will emulate errors t
+
+New Checksum: 22903
+
+
+-----------------------------------
+Sequence Number 11
+ogChecksum: 23249
+
+hat may be generated by the network links and routers. The
+packet is then processed by the error detection function that will detect possibility of error
+based on the checksum. The packet is then processed by the seg
+-----------------------------------
+Sequence Number 12
+ogChecksum: 23293
+
+mentation and reassembly
+function that re-assembles all the segments of the file from the packets received
+into the original file. The file is then displayed by the Web client application using a
+display software or 
+-----------------------------------
+Sequence Number 13
+ogChecksum: 23618
+
+browser.
+Descriptions
+This project introduces you to network programming in the College of Engineering Unix
+computing environment (Linux workstations) which you will use for your programming
+assignments.
+Use the UDP 
+
+An error was detected in this packet: 
+Sequence Number 13
+ogChecksum: 23618
+
+browser.
+Descriptions
+This project introduces you to network programming in the College of Engineering Unix
+computing environ?ent (Linux workstations) which you will use for your programming
+assignments.
+Use the UDP 
+
+New Checksum: 23572
+
+
+-----------------------------------
+Sequence Number 14
+ogChecksum: 23276
+
+java client and server programs presented in class. You need to modify the
+programs to ensure that they run correctly in your environments. For example, you must
+change the server IP address to the address of the mac
+-----------------------------------
+Sequence Number 15
+ogChecksum: 22916
+
+hine in which you will be running
+the server program. Also make sure that the correct ports are used.
+Now, modify the programs to implement a simple Web service as follows:
+1. Modify the client program so that it wil
+
+An error was detected in this packet: 
+Sequence Number 15
+ogChecksum: ?2916
+
+hine in which you will be running
+the server program. Also make sure that the correct ports are used.
+Now, modify the programs to implement a simple Web service as follows:
+1. Modify the client program so that it wil
+
+New Checksum: 22916
+
+
+-----------------------------------
+Sequence Number 16
+ogChecksum: 21808
+
+l send a HTTP request to a simple Web
+server to retrieve a data file. The HTTP request message is supposed to be of the
+form:
+GET TestFile.html HTTP/1.0 
+3
+The server will send HTTP response messages in 256-byte pack
+
+An error was detected in this packet: 
+Sequence Number 16
+ogChecksum: 21808
+
+l send a HTTP request to a simple Web
+server to retrieve a data file. The HTTP request message is su?posed to be of the
+form:
+GET TestFile.html HTTP/1.0 
+3
+The server will send HTTP response messages in 256-byte pack
+
+New Checksum: 21759
+
+
+-----------------------------------
+Sequence Number 17
+ogChecksum: 22362
+
+ets until the end
+of the file (see below). The client will then receive each 256-byte packet in a loop
+and writes them into a file sequentially. When it reads a 1-byte message with a
+NULL character that indicates the
+-----------------------------------
+Sequence Number 18
+ogChecksum: 22633
+
+ end of the file, it will then close the file. Add
+print statements in the client program to indicate that it is sending and receiving
+the packets correctly, i.e. print the messages that it sends and receives.
+2. Mod
+-----------------------------------
+Sequence Number 19
+ogChecksum: 23037
+
+ify the server program so that it responds to clients' HTTP requests. The
+server constructs HTTP response messages by putting header lines before the
+object itself that is to be sent. The 4 header lines are supposed 
+-----------------------------------
+Sequence Number 20
+ogChecksum: 21890
+
+to be of the form:
+HTTP/1.0 200 Document Follows\r\n
+Content-Type: text/plain\r\n
+Content-Length: xxx\r\n
+\r\n
+Data
+(note: \r is a carriage return, \n is a line feed, xxx is the number of bytes in
+the HTML file being
+
+An error was detected in this packet: 
+S?quence Number 20
+ogChecksum: 21890
+
+to be of the form:
+HTTP/1.0 200 Document Follows\r\n
+Content-Type: text/plain\r\n
+Content-Length: xxx\r\n
+\r?n
+Data
+(note: \r is a carriage return, \n is a line feed, xxx is the number of bytes in
+the HTML file being
+
+New Checksum: 21823
+
+
+-----------------------------------
+Sequence Number 21
+ogChecksum: 21928
+
+ sent and data is the requested HTML file)
+The server then reads the requested HTML file (an ASCII file, must be at least 10
+Kbytes), put them in a buffer and sends the content of the buffer to the Web
+client who mad
+
+An error was detected in this packet: 
+Sequence Number 21
+ogChecksum: 21928
+
+ sent and?data is the requested HTML file)
+The server then reads the?requested HTML file (an ASCII file, must be at least 10
+Kbytes), put them in a buffer and sends the content of the buffer to the Web
+client who mad
+
+New Checksum: 21990
+
+
+-----------------------------------
+Sequence Number 22
+ogChecksum: 22090
+
+e the request. The HTTP response messages are sent in 256-byte
+packets until the end of the file. At the end of the file, it transmits 1 byte (NULL
+character) that indicates the end of the file. It will then close th
+-----------------------------------
+Sequence Number 23
+ogChecksum: 23068
+
+e file.
+Add print statements in the server program to indicate that it is receiving and
+sending the packets correctly, i.e. print the messages that it receives and sends.
+Gremlin Function
+Your program must allow the 
+-----------------------------------
+Sequence Number 24
+ogChecksum: 23497
+
+probability of damaged packets to be input as an argument
+when the program is executed. This packet damage probability is passed to your Gremlin
+function. You will implement a gremlin function to simulate two possibl
+
+An error was detected in this packet: 
+Sequence Number 24
+ogChecksum: 23497
+
+probability?of damaged packets to be input as an argument
+when the program is executed. This packet damage probability is passed to your Gremlin
+function. You will implement a gremlin ?unction to simulate two possibl
+
+New Checksum: 23489
+
+
+-----------------------------------
+Sequence Number 25
+ogChecksum: 23533
+
+e scenarios in the
+transmission line: transmission error that cause packet corruption and correct delivery.
+When the receiving process receive each packet, it first pass the packet to a gremlin
+function which will ra
+
+An error was detected in this packet: 
+Sequence Number 25?ogChecksum: 23533
+
+e scenarios in the
+transmission line: transmission error that cause packet corruption and correct delivery.
+When the receiving process receive each packet, it first pass the packet to a gremlin
+function which will ra
+
+New Checksum: 23586
+
+
+-----------------------------------
+Sequence Number 26
+ogChecksum: 23224
+
+ndomly determine whether to change (corrupt) some of the bits or
+pass the packet as it is to the receiving function. The gremlin function uses a randomnumber
+generator to determine whether to damage a packet or pass 
+
+An error was detected in this packet: 
+Sequence Number 26
+ogChecksum: 23224
+
+ndomly determine whether to change (corrupt) ?ome of the bits or
+pass the packet as it is to the receiving function. The gremlin function uses a randomnumber
+generator to determine whether to damage a packet or pass 
+
+New Checksum: 23172
+
+
+-----------------------------------
+Sequence Number 27
+ogChecksum: 22246
+
+the packet as it is to
+the receiving function.
+
+If it decides to damage a packet, it will decide on how many and which byte to change.
+The probability that a given packet will be damaged, P(d), is entered as an argum
+-----------------------------------
+Sequence Number 28
+ogChecksum: 22384
+
+ent at
+runtime. If the probability of damaging a packet is .3, then three out of every ten packets
+will be damaged. If the packet is to be damaged, the probability of changing one byte is
+.5, the probability of chang
+-----------------------------------
+Sequence Number 29
+ogChecksum: 22505
+
+ing two bytes is .3, and the probability of changing 3 bytes is
+.2. Every byte in the packet is equally likely to be damaged. 
+4
+The packet is then passed from the gremlin function to the error detection function tha
+
+An error was detected in this packet: 
+Sequence Number 29
+ogChecksum: 22505
+
+ing two bytes is ?3, and the probability of changing 3 bytes is
+.2. Every byte in the packet is equally likely to be damaged. 
+4
+The packet is then passed from the gremlin function to the error detection function tha
+
+New Checksum: 22522
+
+
+-----------------------------------
+Sequence Number 30
+ogChecksum: 22733
+
+t
+will check for errors in the packet.
+Error Detection Function
+The sending process, e.g. the Web Server, will compute the checksum for the packet that
+is to be sent. The checksum is calculated by simply summing all 
+-----------------------------------
+Sequence Number 31
+ogChecksum: 22848
+
+the bytes in the packet.
+The checksum is then inserted into the checksum header field of the packet.
+The receiving process, e.g. the Web client, will then use the same algorithm for
+computing the checksum that the se
+-----------------------------------
+Sequence Number 32
+ogChecksum: 23089
+
+nding process used. It will calculate the checksum by
+summing all the bytes in the received packet. It then compares the computed checksum
+with the checksum received in the packet. If the two checksums match, then it
+-----------------------------------
+Sequence Number 33
+ogChecksum: 22667
+
+ assumes
+that there is no error, otherwise there is at least an error in the packet.
+When the receiving process detects an error in a packet, it will print out a message
+indicating the packet��s sequence number a
+
+An error was detected in this packet: 
+Sequence Number 33
+ogChecksum: 22?67
+
+ assumes
+that there is no error, otherwise there is at least an error in the packet.
+When the receiving process detects an error in a packet, it will print out a message
+indicating the packet��s sequence number a
+
+New Checksum: 22187
+
+
+-----------------------------------
+Sequence Number 34
+ogChecksum: 22982
+
+hat there is an error in the packet.
+In this project, you must not try to correct for errors in the packet using any network
+protocol or scheme; you are required only to indicate that a packet is in error.
+Testing
+Ru
+-----------------------------------
+Sequence Number 35
+ogChecksum: 23230
+
+n the modified UDP Java client and UDP Java server programs, with the segmentation
+and re-assembly, error detection and gremlin functions, on different tux Linux computers
+and capture the execution trace of the progr
+
+An error was detected in this packet: 
+Sequence Number 35
+ogChecksum: 23230
+
+n the modified UDP Java client and UDP Java server programs, with the segmentati?n
+and re-assembly, error detection and gremlin functions, on different tux Linux computers
+and capture the execution trace of the progr
+
+New Checksum: 23182
+
+
+-----------------------------------
+Sequence Number 36
+ogChecksum: 22727
+
+ams. In Linux, use the script command to
+capture the trace of the execution of the UDP Java client and UDP Java server programs.
+Print the content of the input file read by the server program and the output file rece
+-----------------------------------
+Sequence Number 37
+ogChecksum: 22869
+
+ived
+by the client program.
+Submission
+Submit your source codes and the script of the executions of the programs in Canvas on
+or before the due date. You will also demo your programs to the T.A. to verify that your
+O
+-----------------------------------
+Sequence Number 38
+ogChecksum: 23217
+
+bjective
+The purpose of this assignment is to implement a simple Web service over the UDP
+transport service. You will write the Web client and server programs that will
+communicate over the College of Engineering LAN
+-----------------------------------
+Sequence Number 39
+ogChecksum: 22948
+
+. You will also learn other important
+functions in computer networks: (1) implementation of segmentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+err
+-----------------------------------
+Sequence Number 40
+ogChecksum: 23486
+
+ors generation and detection.
+Overview
+In this project you will implement a simple web client application, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+
+An error was detected in this packet: 
+Sequence Number 40
+ogChecksum: 23486
+
+ors generation and detection.
+Overview
+In this project you will implement a simple ?eb client application, a simple web server
+applica?ion, the segmentation and re-assembly function, an error detection function and a
+
+New Checksum: 23377
+
+
+-----------------------------------
+Sequence Number 41
+ogChecksum: 23202
+
+
+gremlin function (that can corrupt packets with a specified
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+transport service. You will write the Web client and server prog
+
+An error was detected in this packet: 
+Sequence Number 41
+ogChecksum: 23202
+
+
+gremlin function (that can corrupt packets with a specified
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+transport service. You will write the Web client and ser?er prog
+
+New Checksum: 23147
+
+
+-----------------------------------
+Sequence Number 42
+ogChecksum: 23097
+
+rams that will
+communicate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of segmentation and re-assembly of
+long messages, (2) detecting e
+
+An error was detected in this packet: 
+Sequence Number 42
+ogChecksum: 23097
+
+rams that will
+communi?ate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of segmentation and re-assembly of
+long messages, (2) detecting e
+
+New Checksum: 23061
+
+
+-----------------------------------
+Sequence Number 43
+ogChecksum: 23260
+
+rrors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple web client application, a simple web server
+application, the segmentati
+-----------------------------------
+Sequence Number 44
+ogChecksum: 23191
+
+on and re-assembly function, an error detection function and a
+gremlin function (that can corrupt packets with a specified
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+tr
+-----------------------------------
+Sequence Number 45
+ogChecksum: 23275
+
+ansport service. You will write the Web client and server programs that will
+communicate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of 
+-----------------------------------
+Sequence Number 46
+ogChecksum: 23046
+
+segmentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple web clien
+-----------------------------------
+Sequence Number 47
+ogChecksum: 23444
+
+t application, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+gremlin function (that can corrupt packets with a specifiedThe Web client initiates the com
+-----------------------------------
+Sequence Number 48
+ogChecksum: 23093
+
+munication by sending an HTTP request to the Web
+server. This outgoing HTTP request is not processed by the segmentation and reassembly,
+error detection or the Gremlin function. The HTTP request is sent through the
+t
+
+An error was detected in this packet: 
+Sequence Number 48
+ogChecksum: 23093
+
+munication by sending an HTTP request to the Web
+server. This outgoing HTTP request is not processed by the segmentation and reass?mbly,
+error detection or the Gremlin function. The HTTP request is sent through the
+t
+
+New Checksum: 23055
+
+
+-----------------------------------
+Sequence Number 49
+ogChecksum: 22667
+
+ransport UDP datagram socket to the Web server.
+At the Web server host, the HTTP request is also not processed by those functions at the
+Web server host. The Web server will then process the request, e.g. GET command
+-----------------------------------
+Sequence Number 50
+ogChecksum: 23140
+
+, by
+reading the file requested by the Web client. Since the requested file may be large, the
+server application will use the segmentation function to partition the file into smaller
+segments that will fit into a pac
+-----------------------------------
+Sequence Number 51
+ogChecksum: 23070
+
+ket of size allowable by the network. Each segment is
+then placed into a 256-byte packet that is allowed by the network. The packet must
+contain a header that contains information for error detection and other protoc
+
+An error was detected in this packet: 
+Sequence Number 51
+ogChecksum: 23070
+
+ket of size allowable by the?network. Each segment is
+then placed int? a 256-byte packet that is allowed by the network. The packet must
+contain a header that contains information for error detection and other protoc
+
+New Checksum: 23053
+
+
+-----------------------------------
+Sequence Number 52
+ogChecksum: 22971
+
+ol
+information. You may design your own header fields that are of reasonable sizes.
+Another field that must be in the header is a sequence number. The packet is then passed
+to the error detection function which, at t
+
+An error was detected in this packet: 
+Sequence Number 52
+ogChecksum: 22971
+
+ol
+information. You may design your own header fields that are of reasonable sizes.
+Another field th?t must be in the header is a sequence number. The packet is then passed
+to the error detection function which, at t
+
+New Checksum: 22937
+
+
+-----------------------------------
+Sequence Number 53
+ogChecksum: 22546
+
+he server (sending process), will compute the
+checksum and place the checksum in the header. The packet is finally sent via the UDP
+socket to the Web client.
+When the packet is received by the Web client host UDP soc
+-----------------------------------
+Sequence Number 54
+ogChecksum: 23171
+
+ket, the packet will be
+processed by the Gremlin function which may randomly cause errors in some packet.
+This will emulate errors that may be generated by the network links and routers. The
+packet is then processed 
+-----------------------------------
+Sequence Number 55
+ogChecksum: 23495
+
+by the error detection function that will detect possibility of error
+based on the checksum. The packet is then processed by the segmentation and reassembly
+function that re-assembles all the segments of the file fro
+-----------------------------------
+Sequence Number 56
+ogChecksum: 23398
+
+m the packets received
+into the original file. The file is then displayed by the Web client application using a
+display software or browser.
+Descriptions
+This project introduces you to network programming in the Coll
+-----------------------------------
+Sequence Number 57
+ogChecksum: 23502
+
+ege of Engineering Unix
+computing environment (Linux workstations) which you will use for your programming
+assignments.
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+trans
+
+An error was detected in this packet: 
+Sequence Number 57
+ogChecksum: 23502
+
+ege of Engineering Unix
+computing environment (Linux workstations) which you will use for your programming
+assignments.
+Objective
+The pu?pose of this assignment is to implement a simple Web service ?ver the UDP
+trans
+
+New Checksum: 23403
+
+
+-----------------------------------
+Sequence Number 58
+ogChecksum: 23276
+
+port service. You will write the Web client and server programs that will
+communicate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of seg
+-----------------------------------
+Sequence Number 59
+ogChecksum: 22976
+
+mentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple web client a
+
+An error was detected in this packet: 
+Sequence Number 59
+ogChecksum: 22976
+
+mentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple web client ?
+
+New Checksum: 22942
+
+
+-----------------------------------
+Sequence Number 60
+ogChecksum: 23530
+
+pplication, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+gremlin function (that can corrupt packets with a specifiedThe Web client initiates the commun
+-----------------------------------
+Sequence Number 61
+ogChecksum: 23073
+
+ication by sending an HTTP request to the Web
+server. This outgoing HTTP request is not processed by the segmentation and reassembly,
+error detection or the Gremlin function. The HTTP request is sent through the
+tran
+-----------------------------------
+Sequence Number 62
+ogChecksum: 22515
+
+sport UDP datagram socket to the Web server.
+At the Web server host, the HTTP request is also not processed by those functions at the
+Web server host. The Web server will then process the request, e.g. GET command, b
+-----------------------------------
+Sequence Number 63
+ogChecksum: 23294
+
+y
+reading the file requested by the Web client. Since the requested file may be large, the
+server application will use the segmentation function to partition the file into smaller
+segments that will fit into a packet
+-----------------------------------
+Sequence Number 64
+ogChecksum: 22979
+
+ of size allowable by the network. Each segment is
+then placed into a 256-byte packet that is allowed by the network. The packet must
+contain a header that contains information for error detection and other protocol
+
+-----------------------------------
+Sequence Number 65
+ogChecksum: 22983
+
+information. You may design your own header fields that are of reasonable sizes.
+Another field that must be in the header is a sequence number. The packet is then passed
+to the error detection function which, at the 
+
+An error was detected in this packet: 
+Sequence Number 65
+ogChecksum: 22983
+
+information. You?may design your own header fields that are of reasonable sizes.
+Another field that must be in the header is a sequence number. The packet is then passed
+to the error detection function which, at the 
+
+New Checksum: 23014
+
+
+-----------------------------------
+Sequence Number 66
+ogChecksum: 22637
+
+server (sending process), will compute the
+checksum and place the checksum in the header. The packet is finally sent via the UDP
+socket to the Web client.
+When the packet is received by the Web client host UDP socket
+
+An error was detected in this packet: 
+Sequence Number 66
+ogChecksum: 22637
+
+server (sending process), will compute the
+checksum and place the checksum in the header. The packet is fina?ly sent?via the UDP
+socket to the Web client.
+When the packet is received by the Web client host UDP socket
+
+New Checksum: 22623
+
+
+-----------------------------------
+Sequence Number 67
+ogChecksum: 23102
+
+, the packet will be
+processed by the Gremlin function which may randomly cause errors in some packet.
+This will emulate errors that may be generated by the network links and routers. The
+packet is then processed by 
+
+An error was detected in this packet: 
+Sequen?e Number 67
+ogChecksum: 23102
+
+, the packet will be
+processed by the Gremlin function which may randomly cause errors in some packet.
+This will emulate errors that may be generated by the network links and routers. The
+packet is then?processed by 
+
+New Checksum: 23097
+
+
+-----------------------------------
+Sequence Number 68
+ogChecksum: 23505
+
+the error detection function that will detect possibility of error
+based on the checksum. The packet is then processed by the segmentation and reassembly
+function that re-assembles all the segments of the file from t
+-----------------------------------
+Sequence Number 69
+ogChecksum: 23450
+
+he packets received
+into the original file. The file is then displayed by the Web client application using a
+display software or browser.
+Descriptions
+This project introduces you to network programming in the College
+
+An error was detected in this packet: 
+Sequence Number 69
+ogChecksum: 23450
+
+he packets received
+into the original file. The file is then displayed by the Web client app?ication using a
+display software or browser.
+Descriptions
+This project introduces you to network programming in the College
+
+New Checksum: 23405
+
+
+-----------------------------------
+Sequence Number 70
+ogChecksum: 23529
+
+ of Engineering Unix
+computing environment (Linux workstations) which you will use for your programming
+assignments.
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+transpor
+-----------------------------------
+Sequence Number 71
+ogChecksum: 23254
+
+t service. You will write the Web client and server programs that will
+communicate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of segmen
+-----------------------------------
+Sequence Number 72
+ogChecksum: 22983
+
+tation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple web client appl
+-----------------------------------
+Sequence Number 73
+ogChecksum: 23503
+
+ication, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+gremlin function (that can corrupt packets with a specifiedThe Web client initiates the communica
+
+An error was detected in this packet: 
+Sequence Number 73
+ogChecksum: 23503
+
+ication, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+gremlin function (that can corru?t packets with a specifiedThe Web client initiates the communica
+
+New Checksum: 23454
+
+
+-----------------------------------
+Sequence Number 74
+ogChecksum: 23114
+
+tion by sending an HTTP request to the Web
+server. This outgoing HTTP request is not processed by the segmentation and reassembly,
+error detection or the Gremlin function. The HTTP request is sent through the
+transpo
+-----------------------------------
+Sequence Number 75
+ogChecksum: 22426
+
+rt UDP datagram socket to the Web server.
+At the Web server host, the HTTP request is also not processed by those functions at the
+Web server host. The Web server will then process the request, e.g. GET command, by
+r
+-----------------------------------
+Sequence Number 76
+ogChecksum: 23298
+
+eading the file requested by the Web client. Since the requested file may be large, the
+server application will use the segmentation function to partition the file into smaller
+segments that will fit into a packet of
+
+An error was detected in this packet: 
+Sequence Number 76
+ogChecksum: 23298
+?eading the file requested by the Web client. Since the requested fil? may be large, the
+server application will use the segmentation function to partition the file into smaller
+segments that will fit into a packet of
+
+New Checksum: 23313
+
+
+-----------------------------------
+Sequence Number 77
+ogChecksum: 23055
+
+ size allowable by the network. Each segment is
+then placed into a 256-byte packet that is allowed by the network. The packet must
+contain a header that contains information for error detection and other protocol
+inf
+
+An error was detected in this packet: 
+Sequence Number 77
+ogChecksum: 23055
+
+ size allowable by the network. Each segment is
+then placed into a 256-byte packet that is allowed by the network. The packet must
+contain a header that contain? information for error detection and other protocol
+inf
+
+New Checksum: 23003
+
+
+-----------------------------------
+Sequence Number 78
+ogChecksum: 23000
+
+ormation. You may design your own header fields that are of reasonable sizes.
+Another field that must be in the header is a sequence number. The packet is then passed
+to the error detection function which, at the ser
+
+An error was detected in this packet: 
+Sequence Number 78
+ogChecksum: 23000
+
+ormation. You may design your own header fields that are of reasonable sizes.
+Another field that must be in the header is a sequence numbe?. The packet is then passed
+to the error detection function which, at the ser
+
+New Checksum: 22949
+
+
+-----------------------------------
+Sequence Number 79
+ogChecksum: 22503
+
+ver (sending process), will compute the
+checksum and place the checksum in the header. The packet is finally sent via the UDP
+socket to the Web client.
+When the packet is received by the Web client host UDP socket, t
+-----------------------------------
+Sequence Number 80
+ogChecksum: 23226
+
+he packet will be
+processed by the Gremlin function which may randomly cause errors in some packet.
+This will emulate errors that may be generated by the network links and routers. The
+packet is then processed by the
+
+An error was detected in this packet: 
+Sequence Number 80
+ogChecksum: 23226
+
+he packet will be
+processed by the Gremlin function w?ich may randomly cause errors in some packet.
+This will emulate errors that may be generated by the network links and routers. The
+packet is then?processed by the
+
+New Checksum: 23216
+
+
+-----------------------------------
+Sequence Number 81
+ogChecksum: 23416
+
+ error detection function that will detect possibility of error
+based on the checksum. The packet is then processed by the segmentation and reassembly
+function that re-assembles all the segments of the file from the 
+-----------------------------------
+Sequence Number 82
+ogChecksum: 23453
+
+packets received
+into the original file. The file is then displayed by the Web client application using a
+display software or browser.
+Descriptions
+This project introduces you to network programming in the College of
+
+An error was detected in this packet: 
+Sequence Number 82
+ogChecksum: 23453
+
+packets received
+into the original file? The file is then displayed by the Web client application using a
+display software or browser.
+Des?riptions
+This project introduces you to network programming in the College of
+
+New Checksum: 23434
+
+
+-----------------------------------
+Sequence Number 83
+ogChecksum: 17287
+
+ Engineering Unix
+computing environment (Linux workstations) which you will use for your programming
+assignments.                                                                                                       
+-----------------------------------
+Sequence Number 84
+ogChecksum: 03023
+                                                                                                                                                                                                                         
+-----------------------------------
+
+The full message is: 
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+transport service. You will write the Web client and server programs that will
+communicate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of segmentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple web client application, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+gremlin function (that?can corrupt packets with a specifiedThe Web client initiates the communication by s?nding an HTTP request to the Web
+server. This outgoing HTTP request is not processed by the segmentation and reassembly,
+error detection or the Gremlin function. The HTTP request is sent through the
+transport UDP datagram socket to the Web server.
+At the Web server host, the HTTP request is also not processed by those functions at the
+Web server host. The Web server will then process the request, e.g. GET command, by
+reading the file requested by the Web client. Since the requested file may be large, the
+server application will use the segmentation function to partition the fi?e into smaller
+segments that will fit into a packet of size allowable by the network. Each segment is
+then placed into a 256-byte packet that is allowed by the network. The packet must
+contain a header that contains information for error detection and other protocol
+information. You may design your own header fields that ?re of reasonable sizes.
+Another f?eld that must be in the header is a sequence number. The packet is then passed
+to the error detection function which, at the server (sendin? process), will compute the
+checksum and place the checksum in the header. The packet is finally sent via the UDP
+socket?to the Web client.
+When the pac?et is received by the Web client host UDP socket, the packet will be
+processed by the Gremlin function which may randomly cause errors in some packet.
+This will emulate errors that may be generated by the network links and routers. The
+packet is then processed by the error detection function that will detect possibility of error
+based on the checksum. The packet is then processed by the segmentation and reassembly
+function that re-assembles all the segments of the file from the packets received
+into the original file. The file is then displayed by the Web client application using a
+display software or browser.
+Descriptions
+This project introduces you to network programming in the College of Engineering Unix
+computing environ?ent (Linux workstations) which you will use for your programming
+assignments.
+Use the UDP java client and server programs presented in class. You need to modify the
+programs to ensure that they run correctly in your environments. For example, you must
+change the server IP address to the address of the machine in which you will be running
+the server program. Also make sure that the correct ports are used.
+Now, modify the programs to implement a simple Web service as follows:
+1. Modify the client program so that it will send a HTTP request to a simple Web
+server to retrieve a data file. The HTTP request message is su?posed to be of the
+form:
+GET TestFile.html HTTP/1.0 
+3
+The server will send HTTP response messages in 256-byte packets until the end
+of the file (see below). The client will then receive each 256-byte packet in a loop
+and writes them into a file sequentially. When it reads a 1-byte message with a
+NULL character that indicates the end of the file, it will then close the file. Add
+print statements in the client program to indicate that it is sending and receiving
+the packets correctly, i.e. print the messages that it sends and receives.
+2. Modify the server program so that it responds to clients' HTTP requests. The
+server constructs HTTP response messages by putting header lines before the
+object itself that is to be sent. The 4 header lines are supposed to be of the form:
+HTTP/1.0 200 Document Follows\r\n
+Content-Type: text/plain\r\n
+Content-Length: xxx\r\n
+\r?n
+Data
+(note: \r is a carriage return, \n is a line feed, xxx is the number of bytes in
+the HTML file being sent and?data is the requested HTML file)
+The server then reads the?requested HTML file (an ASCII file, must be at least 10
+Kbytes), put them in a buffer and sends the content of the buffer to the Web
+client who made the request. The HTTP response messages are sent in 256-byte
+packets until the end of the file. At the end of the file, it transmits 1 byte (NULL
+character) that indicates the end of the file. It will then close the file.
+Add print statements in the server program to indicate that it is receiving and
+sending the packets correctly, i.e. print the messages that it receives and sends.
+Gremlin Function
+Your program must allow the probability?of damaged packets to be input as an argument
+when the program is executed. This packet damage probability is passed to your Gremlin
+function. You will implement a gremlin ?unction to simulate two possible scenarios in the
+transmission line: transmission error that cause packet corruption and correct delivery.
+When the receiving process receive each packet, it first pass the packet to a gremlin
+function which will randomly determine whether to change (corrupt) ?ome of the bits or
+pass the packet as it is to the receiving function. The gremlin function uses a randomnumber
+generator to determine whether to damage a packet or pass the packet as it is to
+the receiving function.
+
+If it decides to damage a packet, it will decide on how many and which byte to change.
+The probability that a given packet will be damaged, P(d), is entered as an argument at
+runtime. If the probability of damaging a packet is .3, then three out of every ten packets
+will be damaged. If the packet is to be damaged, the probability of changing one byte is
+.5, the probability of changing two bytes is ?3, and the probability of changing 3 bytes is
+.2. Every byte in the packet is equally likely to be damaged. 
+4
+The packet is then passed from the gremlin function to the error detection function that
+will check for errors in the packet.
+Error Detection Function
+The sending process, e.g. the Web Server, will compute the checksum for the packet that
+is to be sent. The checksum is calculated by simply summing all the bytes in the packet.
+The checksum is then inserted into the checksum header field of the packet.
+The receiving process, e.g. the Web client, will then use the same algorithm for
+computing the checksum that the sending process used. It will calculate the checksum by
+summing all the bytes in the received packet. It then compares the computed checksum
+with the checksum received in the packet. If the two checksums match, then it assumes
+that there is no error, otherwise there is at least an error in the packet.
+When the receiving process detects an error in a packet, it will print out a message
+indicating the packet��s sequence number ahat there is an error in the packet.
+In this project, you must not try to correct for errors in the packet using any network
+protocol or scheme; you are required only to indicate that a packet is in error.
+Testing
+Run the modified UDP Java client and UDP Java server programs, with the segmentati?n
+and re-assembly, error detection and gremlin functions, on different tux Linux computers
+and capture the execution trace of the programs. In Linux, use the script command to
+capture the trace of the execution of the UDP Java client and UDP Java server programs.
+Print the content of the input file read by the server program and the output file received
+by the client program.
+Submission
+Submit your source codes and the script of the executions of the programs in Canvas on
+or before the due date. You will also demo your programs to the T.A. to verify that your
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+transport service. You will write the Web client and server programs that will
+communicate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of segmentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple ?eb client application, a simple web server
+applica?ion, the segmentation and re-assembly function, an error detection function and a
+gremlin function (that can corrupt packets with a specified
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+transport service. You will write the Web client and ser?er programs that will
+communi?ate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of segmentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple web client application, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+gremlin function (that can corrupt packets with a specified
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+transport service. You will write the Web client and server programs that will
+communicate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of segmentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple web client application, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+gremlin function (that can corrupt packets with a specifiedThe Web client initiates the communication by sending an HTTP request to the Web
+server. This outgoing HTTP request is not processed by the segmentation and reass?mbly,
+error detection or the Gremlin function. The HTTP request is sent through the
+transport UDP datagram socket to the Web server.
+At the Web server host, the HTTP request is also not processed by those functions at the
+Web server host. The Web server will then process the request, e.g. GET command, by
+reading the file requested by the Web client. Since the requested file may be large, the
+server application will use the segmentation function to partition the file into smaller
+segments that will fit into a packet of size allowable by the?network. Each segment is
+then placed int? a 256-byte packet that is allowed by the network. The packet must
+contain a header that contains information for error detection and other protocol
+information. You may design your own header fields that are of reasonable sizes.
+Another field th?t must be in the header is a sequence number. The packet is then passed
+to the error detection function which, at the server (sending process), will compute the
+checksum and place the checksum in the header. The packet is finally sent via the UDP
+socket to the Web client.
+When the packet is received by the Web client host UDP socket, the packet will be
+processed by the Gremlin function which may randomly cause errors in some packet.
+This will emulate errors that may be generated by the network links and routers. The
+packet is then processed by the error detection function that will detect possibility of error
+based on the checksum. The packet is then processed by the segmentation and reassembly
+function that re-assembles all the segments of the file from the packets received
+into the original file. The file is then displayed by the Web client application using a
+display software or browser.
+Descriptions
+This project introduces you to network programming in the College of Engineering Unix
+computing environment (Linux workstations) which you will use for your programming
+assignments.
+Objective
+The pu?pose of this assignment is to implement a simple Web service ?ver the UDP
+transport service. You will write the Web client and server programs that will
+communicate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of segmentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple web client ?pplication, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+gremlin function (that can corrupt packets with a specifiedThe Web client initiates the communication by sending an HTTP request to the Web
+server. This outgoing HTTP request is not processed by the segmentation and reassembly,
+error detection or the Gremlin function. The HTTP request is sent through the
+transport UDP datagram socket to the Web server.
+At the Web server host, the HTTP request is also not processed by those functions at the
+Web server host. The Web server will then process the request, e.g. GET command, by
+reading the file requested by the Web client. Since the requested file may be large, the
+server application will use the segmentation function to partition the file into smaller
+segments that will fit into a packet of size allowable by the network. Each segment is
+then placed into a 256-byte packet that is allowed by the network. The packet must
+contain a header that contains information for error detection and other protocol
+information. You?may design your own header fields that are of reasonable sizes.
+Another field that must be in the header is a sequence number. The packet is then passed
+to the error detection function which, at the server (sending process), will compute the
+checksum and place the checksum in the header. The packet is fina?ly sent?via the UDP
+socket to the Web client.
+When the packet is received by the Web client host UDP socket, the packet will be
+processed by the Gremlin function which may randomly cause errors in some packet.
+This will emulate errors that may be generated by the network links and routers. The
+packet is then?processed by the error detection function that will detect possibility of error
+based on the checksum. The packet is then processed by the segmentation and reassembly
+function that re-assembles all the segments of the file from the packets received
+into the original file. The file is then displayed by the Web client app?ication using a
+display software or browser.
+Descriptions
+This project introduces you to network programming in the College of Engineering Unix
+computing environment (Linux workstations) which you will use for your programming
+assignments.
+Objective
+The purpose of this assignment is to implement a simple Web service over the UDP
+transport service. You will write the Web client and server programs that will
+communicate over the College of Engineering LAN. You will also learn other important
+functions in computer networks: (1) implementation of segmentation and re-assembly of
+long messages, (2) detecting errors in the received packets, and (3) emulation of packet
+errors generation and detection.
+Overview
+In this project you will implement a simple web client application, a simple web server
+application, the segmentation and re-assembly function, an error detection function and a
+gremlin function (that can corru?t packets with a specifiedThe Web client initiates the communication by sending an HTTP request to the Web
+server. This outgoing HTTP request is not processed by the segmentation and reassembly,
+error detection or the Gremlin function. The HTTP request is sent through the
+transport UDP datagram socket to the Web server.
+At the Web server host, the HTTP request is also not processed by those functions at the
+Web server host. The Web server will then process the request, e.g. GET command, by
+reading the file requested by the Web client. Since the requested fil? may be large, the
+server application will use the segmentation function to partition the file into smaller
+segments that will fit into a packet of size allowable by the network. Each segment is
+then placed into a 256-byte packet that is allowed by the network. The packet must
+contain a header that contain? information for error detection and other protocol
+information. You may design your own header fields that are of reasonable sizes.
+Another field that must be in the header is a sequence numbe?. The packet is then passed
+to the error detection function which, at the server (sending process), will compute the
+checksum and place the checksum in the header. The packet is finally sent via the UDP
+socket to the Web client.
+When the packet is received by the Web client host UDP socket, the packet will be
+processed by the Gremlin function w?ich may randomly cause errors in some packet.
+This will emulate errors that may be generated by the network links and routers. The
+packet is then?processed by the error detection function that will detect possibility of error
+based on the checksum. The packet is then processed by the segmentation and reassembly
+function that re-assembles all the segments of the file from the packets received
+into the original file? The file is then displayed by the Web client application using a
+display software or browser.
+Des?riptions
+This project introduces you to network programming in the College of Engineering Unix
+computing environment (Linux workstations) which you will use for your programming
+assignments.                                                                                                       
+
+Saving...
+File saved successfully: save
+bash-4.2$ exit
+exit
+
+Script done on Mon 16 Jul 2018 06:57:32 PM CDT
