@@ -1,2 +1,4 @@
 # COMP4320
-Activities&amp;Projects of COMP4320(Introduction to Computer Networks).
+<br />
+Code storage of activities&projects of COMP4320(Introduction to Computer Networks).
+<br />
